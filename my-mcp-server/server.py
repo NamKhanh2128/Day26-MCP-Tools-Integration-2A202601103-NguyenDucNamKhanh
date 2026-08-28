@@ -229,7 +229,7 @@ def main() -> None:
     )
     parser.add_argument("--host", default=HOST, help="Host to bind for HTTP (default 0.0.0.0)")
     parser.add_argument("--port", type=int, default=PORT, help=f"Port for HTTP (default {PORT})")
-    args = parser.parse_args()
+    args, _ = parser.parse_known_args()
 
     transport = "streamable-http" if args.transport in ("streamable-http", "http") else "stdio"
 

@@ -1,14 +1,15 @@
 {
   "mcpServers": {
     "devops-intelligence": {
-      "command": "python",
+      "command": "C:\\Users\\KHANH\\miniconda3\\python.exe",
       "args": [
-        "c:/Users/KHANH/Documents/GitHub/Day26-MCP-Tools-Integration-2A202601103-NguyenDucNamKhanh/my-mcp-server/server.py",
-        "--transport",
-        "stdio"
+        "-u",
+        "c:\\Users\\KHANH\\Documents\\GitHub\\Day26-MCP-Tools-Integration-2A202601103-NguyenDucNamKhanh\\my-mcp-server\\server.py"
       ],
       "env": {
         "PYTHONUTF8": "1",
+        "PYTHONUNBUFFERED": "1",
+        "PYTHONPATH": "c:\\Users\\KHANH\\Documents\\GitHub\\Day26-MCP-Tools-Integration-2A202601103-NguyenDucNamKhanh\\my-mcp-server",
         "MCP_AUTH_TOKEN": "dev-token-secret123"
       }
     }
