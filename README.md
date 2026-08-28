@@ -7,6 +7,7 @@
 ```
 Day26-MCP-Tools-Integration/
 ├── README.md                ← Bạn đang đọc file này
+├── REPORT.md                ← 📄 BÁO CÁO TỔNG KẾT LAB CHI TIẾT 100% (Nguyễn Đức Nam Khánh - 2A202601103)
 ├── MUSTDO.md                ← Checklist hướng dẫn nộp bài & các bước thủ công
 ├── requirements.txt         ← pip install -r requirements.txt
 │
