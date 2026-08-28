@@ -1,0 +1,93 @@
+[
+  {
+    "order_id": "ORD-2026-001",
+    "customer": {
+      "name": "Nguyen Van An",
+      "email": "an.nguyen@example.com",
+      "phone": "+84-901-234-567"
+    },
+    "items": [
+      {"sku": "LAPTOP-X1", "name": "ThinkPad X1 Carbon Gen 12", "quantity": 1, "price": 1850.00},
+      {"sku": "ACC-MOUSE-01", "name": "Logitech MX Master 3S", "quantity": 1, "price": 99.00}
+    ],
+    "total_amount": 1949.00,
+    "currency": "USD",
+    "status": "COMPLETED",
+    "payment_method": "Credit Card",
+    "tracking_number": "VN-POST-99281726",
+    "created_at": "2026-08-28T08:12:44Z",
+    "updated_at": "2026-08-28T08:45:00Z"
+  },
+  {
+    "order_id": "ORD-2026-002",
+    "customer": {
+      "name": "Tran Thi Mai",
+      "email": "mai.tran@example.com",
+      "phone": "+84-912-345-678"
+    },
+    "items": [
+      {"sku": "MONITOR-4K-27", "name": "Dell UltraSharp 27 4K", "quantity": 2, "price": 520.00}
+    ],
+    "total_amount": 1040.00,
+    "currency": "USD",
+    "status": "PROCESSING",
+    "payment_method": "Bank Transfer",
+    "tracking_number": "PENDING",
+    "created_at": "2026-08-28T09:00:00Z",
+    "updated_at": "2026-08-28T09:05:00Z"
+  },
+  {
+    "order_id": "ORD-2026-003",
+    "customer": {
+      "name": "Le Hoang Long",
+      "email": "long.le@example.com",
+      "phone": "+84-988-765-432"
+    },
+    "items": [
+      {"sku": "GPU-RTX-5090", "name": "NVIDIA RTX 5090 32GB", "quantity": 1, "price": 2499.00}
+    ],
+    "total_amount": 2499.00,
+    "currency": "USD",
+    "status": "PENDING_PAYMENT",
+    "payment_method": "Credit Card",
+    "tracking_number": null,
+    "created_at": "2026-08-28T09:40:12Z",
+    "updated_at": "2026-08-28T09:40:13Z"
+  },
+  {
+    "order_id": "ORD-2026-004",
+    "customer": {
+      "name": "Elena Rostova",
+      "email": "elena.rostova@techglobal.io",
+      "phone": "+1-415-555-0199"
+    },
+    "items": [
+      {"sku": "SRV-RACK-01", "name": "1U Rackmount Server Xeon 64C", "quantity": 1, "price": 4890.00}
+    ],
+    "total_amount": 4890.00,
+    "currency": "USD",
+    "status": "COMPLETED",
+    "payment_method": "Corporate Wire",
+    "tracking_number": "FEDEX-883719402",
+    "created_at": "2026-08-28T13:10:45Z",
+    "updated_at": "2026-08-28T15:30:11Z"
+  },
+  {
+    "order_id": "ORD-2026-005",
+    "customer": {
+      "name": "Pham Minh Duc",
+      "email": "duc.pham@startup.vn",
+      "phone": "+84-933-221-100"
+    },
+    "items": [
+      {"sku": "KEYBOARD-MECH-01", "name": "Keychron Q1 Pro Wireless", "quantity": 1, "price": 199.00}
+    ],
+    "total_amount": 199.00,
+    "currency": "USD",
+    "status": "CANCELLED",
+    "payment_method": "Momo",
+    "tracking_number": null,
+    "created_at": "2026-08-28T14:20:00Z",
+    "updated_at": "2026-08-28T14:25:00Z"
+  }
+]

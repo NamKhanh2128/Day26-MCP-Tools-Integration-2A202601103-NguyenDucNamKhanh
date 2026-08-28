@@ -2,11 +2,14 @@ from typing import Any
 import asyncio
 import httpx
 import os
-from mcp.server.fastmcp import FastMCP
-
-# Initialize FastMCP server
-port = int(os.getenv("PORT", 8085))
-mcp = FastMCP("weather", host="0.0.0.0", port=port)
+try:
+    from mcp.server.mcpserver import MCPServer
+    port = int(os.getenv("PORT", 8085))
+    mcp = MCPServer("weather")
+except Exception:
+    from mcp.server.fastmcp import FastMCP
+    port = int(os.getenv("PORT", 8085))
+    mcp = FastMCP("weather", host="0.0.0.0", port=port)
 
 # Constants
 WEATHERAPI_BASE = "https://api.weatherapi.com/v1"

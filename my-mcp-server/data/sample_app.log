@@ -1,0 +1,40 @@
+2026-08-28 08:00:15 [INFO] [server.main] Application startup initiated on port 8000
+2026-08-28 08:00:16 [INFO] [server.database] Connecting to PostgreSQL database at db.bmnnykrmesauqaikbcot.supabase.co:5432...
+2026-08-28 08:00:17 [INFO] [server.database] Database connection pool established with 10 workers.
+2026-08-28 08:05:22 [INFO] [auth.service] User login successful: user_id=usr_1001, email=alex.nguyen@example.com, role=admin
+2026-08-28 08:12:44 [INFO] [orders.service] Order created: order_id=ORD-2026-001, customer=Alex Nguyen, amount=125.50 USD
+2026-08-28 08:14:10 [INFO] [payment.gateway] Payment authorized for ORD-2026-001 via Stripe (txn_stripe_9921)
+2026-08-28 08:30:19 [WARNING] [cache.redis] Cache miss for key 'product_catalog_v2_electronics'. Fetching from primary DB.
+2026-08-28 08:45:00 [INFO] [orders.service] Order status updated: order_id=ORD-2026-001, status=COMPLETED
+2026-08-28 09:15:33 [WARNING] [rate_limiter] IP 192.168.1.105 exceeded 60 requests/min. Rate limiting applied.
+2026-08-28 09:40:12 [ERROR] [payment.gateway] Payment processing failed for order_id=ORD-2026-003: Insufficient funds on card
+Traceback (most recent call last):
+  File "/app/services/payment.py", line 88, in process_charge
+    charge_response = stripe_client.charges.create(amount=45000, currency="usd")
+  File "/usr/local/lib/python3.13/site-packages/stripe/api.py", line 42, in create
+    raise CardError("Card declined: Insufficient funds", code="card_declined")
+stripe.error.CardError: Card declined: Insufficient funds
+2026-08-28 09:40:13 [WARNING] [orders.service] Order ORD-2026-003 moved to PENDING_PAYMENT due to gateway decline.
+2026-08-28 10:15:02 [INFO] [inventory.sync] Automated stock inventory check completed for 1,240 SKUs.
+2026-08-28 11:22:45 [ERROR] [database.pool] Database connection timeout: query duration exceeded 30000ms
+Traceback (most recent call last):
+  File "/app/db/engine.py", line 145, in execute_query
+    conn = pool.get_connection(timeout=30.0)
+  File "/usr/local/lib/python3.13/site-packages/psycopg2/pool.py", line 62, in get_connection
+    raise PoolTimeout("Connection pool exhausted under heavy load")
+psycopg2.pool.PoolTimeout: Connection pool exhausted under heavy load
+2026-08-28 11:23:01 [WARNING] [circuit_breaker] Database circuit breaker tripped to HALF-OPEN state.
+2026-08-28 11:24:10 [INFO] [circuit_breaker] Database connectivity restored. Pool stabilized at 8 available connections.
+2026-08-28 12:00:00 [INFO] [cron.backup] Daily incremental backup completed successfully (archive_size=42.8MB).
+2026-08-28 13:10:45 [INFO] [orders.service] Order created: order_id=ORD-2026-004, customer=Elena Rostova, amount=890.00 USD
+2026-08-28 14:05:19 [CRITICAL] [auth.jwt] JWT Secret Key rotation failure: unable to load new RSA public key from KMS
+Traceback (most recent call last):
+  File "/app/auth/jwt_handler.py", line 210, in rotate_keys
+    new_key = kms_client.get_secret("JWT_SIGNING_KEY_2026")
+  File "/usr/local/lib/python3.13/site-packages/gcp/kms.py", line 114, in get_secret
+    raise KeyNotFoundError("Secret key version 2 not found in target keyring")
+gcp.kms.KeyNotFoundError: Secret key version 2 not found in target keyring
+2026-08-28 14:06:00 [WARNING] [auth.jwt] Fallback to existing active key pair v1 maintained.
+2026-08-28 15:30:11 [INFO] [orders.service] Order status updated: order_id=ORD-2026-004, status=COMPLETED
+2026-08-28 16:45:20 [ERROR] [api.external] External API webhook delivery failed to https://partner.example.com/webhook: 504 Gateway Timeout
+2026-08-28 17:00:00 [INFO] [telemetry.metrics] System health check: CPU 24%, Memory 48%, Active Connections 14

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "devops-intelligence": {
+      "command": "python",
+      "args": [
+        "my-mcp-server/server.py",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "PYTHONUTF8": "1"
+      }
+    }
+  }
+}

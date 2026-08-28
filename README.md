@@ -5,8 +5,9 @@
 ## Cấu trúc repo
 
 ```
-day26-mcp/
+Day26-MCP-Tools-Integration/
 ├── README.md                ← Bạn đang đọc file này
+├── MUSTDO.md                ← Checklist hướng dẫn nộp bài & các bước thủ công
 ├── requirements.txt         ← pip install -r requirements.txt
 │
 ├── 01-function-calling/     ← Bước 1: Function Calling thuần (Gemini SDK)
@@ -18,34 +19,57 @@ day26-mcp/
 │   ├── weather_server.py
 │   └── weather_client.py
 │
-└── 03-production/           ← Bước 3: Auth, Tool Registry, Versioning
-    ├── README.md
-    ├── auth_server.py
-    ├── auth_client.py
-    ├── registry.json
-    ├── registry_client.py
-    └── versioned_server.py
+├── 03-production/           ← Bước 3: Auth, Tool Registry, Versioning
+│   ├── README.md
+│   ├── auth_server.py
+│   ├── auth_client.py
+│   ├── registry.json
+│   ├── registry_client.py
+│   └── versioned_server.py
+│
+├── 04-lab/                  ← Bước 4: Lab Weather Agent kết nối MCP Server
+│   ├── README.md
+│   ├── mcp-server/
+│   └── mcp-client/
+│
+└── my-mcp-server/           ← ⭐ BÀI TẬP CHÍNH THỰC TẾ (Bài 1, 2, 3 & Bonus)
+    ├── README.md            ← Tài liệu chi tiết use case & hướng dẫn
+    ├── server.py            ← MCP Server đa chế độ (stdio + Streamable HTTP + Auth + Versioning)
+    ├── config.py            ← Quản lý cấu hình & Environment loader
+    ├── tools/               ← Bộ tools thực tế (Logs, Database, System)
+    ├── clients/             ← Bộ demo clients (stdio, http auth, smart versioning)
+    ├── tests/               ← Unit tests & Integration tests
+    ├── run_all_tests.py     ← Runner kiểm thử tự động 100%
+    ├── claude_desktop_config.json ← Config cho Claude Desktop
+    └── .claude.json         ← Config cho Claude Code
 ```
 
 ## Quick start
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
+# 1. Kích hoạt môi trường và cài package
+python -m venv .venv
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+# Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
 
-# MCP demo (không cần API key)
+# 2. Chạy bộ kiểm thử tự động 100% của my-mcp-server
+python my-mcp-server/run_all_tests.py
+
+# 3. Chạy demo stdio client (Bài 1 - Dễ)
+python my-mcp-server/clients/client_stdio.py
+
+# 4. Chạy demo smart client đọc server://info (Bài 3 - Khó)
+python my-mcp-server/clients/client_smart.py
+
+# 5. Chạy server qua Streamable HTTP có Bearer Auth (Bài 2 - Trung bình)
+# Terminal 1:
+python my-mcp-server/server.py --transport streamable-http --port 8080
+# Terminal 2:
+python my-mcp-server/clients/client_http.py
+
+# 6. Các bài mẫu cơ bản trong repo:
 cd 02-mcp-basics && python weather_client.py
-
-# Function Calling (cần Gemini API key)
-export GEMINI_API_KEY=...
-cd 01-function-calling && python weather_function_calling.py
-
-# Production — Auth (2 terminal)
-cd 03-production
-python auth_server.py              # terminal 1
-python auth_client.py              # terminal 2
-
-# Production — Tool Registry
 cd 03-production && python registry_client.py
 ```
 

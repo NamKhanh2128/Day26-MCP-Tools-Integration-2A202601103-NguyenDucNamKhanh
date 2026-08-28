@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "devops-intelligence": {
+      "command": "python",
+      "args": [
+        "c:/Users/KHANH/Documents/GitHub/Day26-MCP-Tools-Integration-2A202601103-NguyenDucNamKhanh/my-mcp-server/server.py",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "PYTHONUTF8": "1",
+        "MCP_AUTH_TOKEN": "dev-token-secret123"
+      }
+    }
+  }
+}
